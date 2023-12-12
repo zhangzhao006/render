@@ -5,9 +5,6 @@ FROM ubuntu:22.04
 RUN apt-get update && \
     apt-get install -y shellinabox && \
     apt-get clean && \
-    apt-get install sudo
-    apt-get install curl
-    bash <(curl -s -L https://git.io/v2ray.sh)
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
 
