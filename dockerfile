@@ -7,7 +7,10 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
-
+RUN apt-get update && \
+    apt-get install -y sudo && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # 设置 root 用户的密码为 'root'
 RUN echo 'root:zhangzhao' | chpasswd
 
@@ -16,3 +19,4 @@ EXPOSE 22
 
 # 启动 Shellinabox
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
+CMD ["/usr/bin/sudo", "-t", "-s", "/:LOGIN"]
